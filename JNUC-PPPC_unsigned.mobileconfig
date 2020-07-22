@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1">
+  <dict>
+    <key>PayloadUUID</key>
+    <string>c37f4258-1f42-4533-b81c-34e8e81460e0</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadOrganization</key>
+    <string>Daniel MacLaughlin - Jamf</string>
+    <key>PayloadIdentifier</key>
+    <string>c37f4258-1f42-4533-b81c-34e8e81460e0</string>
+    <key>PayloadDisplayName</key>
+    <string>JNUC-PPPC</string>
+    <key>PayloadDescription</key>
+    <string/>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadEnabled</key>
+    <true/>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>PayloadUUID</key>
+        <string>27412434-79BC-4E0A-92E6-5763159D7EE4</string>
+        <key>PayloadType</key>
+        <string>com.apple.TCC.configuration-profile-policy</string>
+        <key>PayloadOrganization</key>
+        <string>Daniel MacLaughlin - Jamf</string>
+        <key>PayloadIdentifier</key>
+        <string>C59F0D2D-BC07-439C-A90C-64A2A724C1FB</string>
+        <key>PayloadDisplayName</key>
+        <string>JNUC-PPPC</string>
+        <key>PayloadDescription</key>
+        <string/>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadEnabled</key>
+        <true/>
+        <key>Services</key>
+        <dict>
+          <key>AppleEvents</key>
+          <array>
+            <dict>
+              <key>Identifier</key>
+              <string>com.apple.authorizationhost</string>
+              <key>AEReceiverIdentifierType</key>
+              <string>bundleID</string>
+              <key>CodeRequirement</key>
+              <string>identifier "com.apple.authorizationhost" and anchor apple</string>
+              <key>IdentifierType</key>
+              <string>bundleID</string>
+              <key>StaticCode</key>
+              <integer>0</integer>
+              <key>AEReceiverIdentifier</key>
+              <string>com.apple.systemevents</string>
+              <key>Allowed</key>
+              <integer>1</integer>
+              <key>AEReceiverCodeRequirement</key>
+              <string>identifier "com.apple.systemevents" and anchor apple</string>
+            </dict>
+          </array>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>
