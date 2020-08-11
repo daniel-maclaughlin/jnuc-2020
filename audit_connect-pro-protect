@@ -1,0 +1,40 @@
+#!/bin/sh
+
+#Part 1, making our audit file
+###############################
+#Audit Log Directory for Protect to query
+audit_log_directory="/Library/Application Support/JamfConnect/Audit/"
+
+#Jamf Protect EA
+jamf_protect_ea="/Library/Application Support/JamfProtect/groups/Jamf Connect Audit"
+
+#Get jamf connect Log path
+jamf_connect_log="/private/tmp/jamf_login.log"
+
+#Get current date in YYYY-mm-dd_HH:MM:SS format
+current_date=$(/bin/date +"%Y-%m-%d_%H-%M-%S")
+
+#check if Local Auth button was pressed
+local_auth=$(/bin/cat $jamf_connect_log | grep "Local auth continue pressed.")
+
+#check if there has been a successful network auth
+network_auth=$(/bin/cat $jamf_connect_log | grep "OIDC Auth succeded")
+
+#Check if Audit Directory exists
+if [ ! -d $audit_log_directory ]; then
+	/bin/mkdir -p $audit_log_directory
+fi
+
+#check if network auth was successful, if so we can trash the audit files
+if [[ $network_auth =~ "OIDC Auth succeded" ]];then
+	echo "network login occured"
+	#remove Jamf Protect EA
+	/bin/rm  $jamf_protect_ea
+	#run jamf inventory update
+	/usr/local/bin/jamf recon
+fi
+
+#check if local auth button was pressed, if so write out the audit log
+if [[ $local_auth =~ "Local auth continue pressed." ]];then
+	/usr/bin/touch $audit_log_directory$current_date
+fi
