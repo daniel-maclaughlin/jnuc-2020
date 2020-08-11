@@ -44,7 +44,7 @@ fi
 
 #Part 3 - Taking action
 ###############################
-#first we are going to waiut for the desktop to load so that we can display our messages
+#first we are going to wait for the desktop to load so that we can display our messages
 dockStatus=$(pgrep -x Dock)
 
 while [[ "$dockStatus" == "" ]]
