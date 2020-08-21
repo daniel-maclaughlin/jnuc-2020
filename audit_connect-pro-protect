@@ -38,3 +38,8 @@ fi
 if [[ $local_auth =~ "Local auth continue pressed." ]];then
 	/usr/bin/touch $audit_log_directory$current_date
 fi
+
+#move log to sub folder to prevent duplicate reports
+#wait a few moments for the log to complete before moving it
+/bin/sleep 3
+/bin/mv $jamf_connect_log $jamf_connect_log$current_date.log
